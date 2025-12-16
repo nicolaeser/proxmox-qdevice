@@ -9,6 +9,6 @@ services:
       - NEW_ROOT_PASSWORD=root
     volumes:
       - /run/sshd
-      - <LOCAL-STORAGE>:/etc/corosync
+      - /etc/corosync
     restart: unless-stopped
     hostname: <MY FQDN>
