@@ -17,7 +17,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 COPY supervisord.conf /etc/supervisord.conf
-
+COPY adjust-root-pw.sh /usr/local/bin/adjust_root_password.sh
+RUN chown root.root /usr/local/bin/adjust_root_password.sh \
+    && chmod 755 /usr/local/bin/adjust_root_password.sh
+    
+    
 EXPOSE 22
 EXPOSE 5403
 
